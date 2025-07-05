@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const LandingPage: React.FC = () => {
   const { scrollY } = useScroll();
+  const [viewportHeight, setViewportHeight] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setViewportHeight(window.innerHeight);
+    }
+  }, []);
+
   const opacity = useTransform(
     scrollY,
-    [0, typeof window !== "undefined" ? window.innerHeight : 300],
+    [0, viewportHeight * 1.5 || 450],
     [1, 0]
   );
   return (
@@ -111,7 +119,7 @@ const LandingPage: React.FC = () => {
           <p
             style={{
               fontSize: "1.5rem",
-              maxWidth: "800px",
+              maxWidth: "1000px",
               margin: "0 auto",
               color: "#fff",
             }}
