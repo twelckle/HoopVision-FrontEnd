@@ -89,14 +89,25 @@ const LandingPage: React.FC = () => {
         <div>
           <h1
             style={{
-              fontSize: "3.5rem",
-              marginBottom: "1rem",
+              fontSize: "7rem",
+              marginBottom: "2rem",
               fontWeight: "bold",
               color: "#fff",
             }}
           >
-            HoopVision: Basketball Computer Vision
+            HoopVision
           </h1>
+          {/* <h2
+            style={{
+              fontSize: "2rem",
+              marginTop: "0.5rem",
+              marginBottom: "0.5rem",
+              fontWeight: "bold",
+              color: "#fff",
+            }}
+          >
+            Basketball Computer Vision
+          </h2> */}
           <p
             style={{
               fontSize: "1.2rem",

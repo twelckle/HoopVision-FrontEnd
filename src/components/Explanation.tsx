@@ -15,19 +15,22 @@ const Explanation: React.FC = () => {
       style={{
         backgroundColor,
         position: "relative",
-        height: "100vh",
+        minHeight: "100vh",
         width: "100%",
+        maxWidth: "100vw",
+        boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: "4rem 2rem",
+        padding: "5rem 2rem",
         gap: "7rem",
+        overflow: "hidden",
       }}
     >
       {/* Section 1 */}
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "2rem", flexWrap: "wrap", maxWidth: "1200px" }}>
-        <div style={{ width: "672px", height: "378px" }}>
+      <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "2rem", flexWrap: "wrap", maxWidth: "1000px", paddingLeft: "1rem", paddingRight: "1rem" }}>
+        <div style={{ width: "448px", height: "252px" }}>
           <iframe
             src="https://www.youtube.com/embed/0NoCDjfrcEU"
             title="Labeled Photos Video"
@@ -42,18 +45,18 @@ const Explanation: React.FC = () => {
           ></iframe>
         </div>
         <div style={{ flex: "1 1 400px" }}>
-          <h3 style={{ fontSize: "2rem", fontWeight: "bold", color: "#000", marginBottom: "1rem" }}>
+          <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#000", marginBottom: "1rem" }}>
             Labeling Data
           </h3>
-          <p style={{ fontSize: "1.4rem", color: "#333" }}>
+          <p style={{ fontSize: "1.1rem", color: "#333" }}>
             This video shows a preview of the custom-labeled dataset used to train the HoopVision model. Each frame contains bounding boxes identifying the basketball, players, and the basket, <strong>labeled manually</strong> across 4,400 images.
           </p>
         </div>
       </div>
 
       {/* Section 2 */}
-      <div style={{ display: "flex", flexDirection: "row-reverse", alignItems: "center", gap: "2rem", flexWrap: "wrap", maxWidth: "1200px" }}>
-        <div style={{ width: "672px", height: "378px" }}>
+      <div style={{ display: "flex", flexDirection: "row-reverse", alignItems: "center", gap: "2rem", flexWrap: "wrap", maxWidth: "1000px", paddingLeft: "1rem", paddingRight: "1rem" }}>
+        <div style={{ width: "448px", height: "252px" }}>
           <iframe
             src="https://www.youtube.com/embed/eoz4K-mz-Gw"
             title="Best Model Demo"
@@ -68,10 +71,10 @@ const Explanation: React.FC = () => {
           ></iframe>
         </div>
         <div style={{ flex: "1 1 400px" }}>
-          <h3 style={{ fontSize: "2rem", fontWeight: "bold", color: "#000", marginBottom: "1rem" }}>
+          <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#000", marginBottom: "1rem" }}>
             Model Performance
           </h3>
-          <p style={{ fontSize: "1.4rem", color: "#333" }}>
+          <p style={{ fontSize: "1.1rem", color: "#333" }}>
             This clip demonstrates the final model performing inference on unseen game footage. You can see how accurately the YOLOv8 model detects key basketball objects in real time, laying the foundation for automatic stat tracking.
           </p>
         </div>
