@@ -1,21 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
 
 const LandingPage: React.FC = () => {
-  const { scrollY } = useScroll();
-  const [viewportHeight, setViewportHeight] = useState(0);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setViewportHeight(window.innerHeight);
-    }
-  }, []);
-
-  const opacity = useTransform(
-    scrollY,
-    [0, viewportHeight * 1.5 || 450],
-    [1, 0]
-  );
+  const ref = useRef(null);
   return (
     <div
       style={{
@@ -24,8 +11,8 @@ const LandingPage: React.FC = () => {
         left: 0,
         width: "100%",
         height: "100vh",
+        overflow: "hidden",
         zIndex: 0,
-        pointerEvents: "none",
       }}
     >
       <div
@@ -38,7 +25,6 @@ const LandingPage: React.FC = () => {
           backgroundColor: "transparent",
           boxShadow: "none",
           zIndex: 1,
-          pointerEvents: "auto",
         }}
       >
         <a href="/">
@@ -57,7 +43,7 @@ const LandingPage: React.FC = () => {
             <img
               src="/HoopVisionFullLogo.png"
               alt="HoopVision Logo"
-              style={{ height: "120px", objectFit: "contain" }}
+              style={{ height: "140px", objectFit: "contain" }}
             />
           </div>
         </a>
@@ -80,7 +66,6 @@ const LandingPage: React.FC = () => {
         <source src="/CurryThree.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-
       <div
         style={{
           position: "absolute",
@@ -92,17 +77,15 @@ const LandingPage: React.FC = () => {
           zIndex: -1,
         }}
       />
-
-      <motion.div
+      <div
         style={{
           position: "absolute",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          padding: "2rem",
-          color: "#fff",
           textAlign: "center",
-          opacity,
+          width: "100%",
+          padding: "0 2rem",
         }}
       >
         <div>
@@ -134,7 +117,7 @@ const LandingPage: React.FC = () => {
             recognition and jersey number detection.
           </p>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

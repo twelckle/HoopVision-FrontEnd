@@ -1,25 +1,28 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const Explanation: React.FC = () => {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, window.innerHeight * 1.5], ["100%", "0%"]);
-  const opacity = useTransform(scrollY, () => 1);
+  const fadeRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: fadeRef,
+    offset: ["start start", "end start"],
+  });
+  const backgroundColor = useTransform(scrollYProgress, [0, 1], ["#ffffff", "#000000"]);
 
   return (
     <motion.div
+      ref={fadeRef}
       style={{
-        minHeight: "100vh",
-        backgroundColor: "#ffffff",
+        backgroundColor,
+        position: "relative",
+        height: "100vh",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         padding: "4rem 2rem",
-        position: "relative",
-        y,
-        opacity,
-        gap: "7rem"
+        gap: "7rem",
       }}
     >
       {/* Section 1 */}

@@ -2,25 +2,26 @@ import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const ResourcesLinks: React.FC = () => {
-  const { scrollY } = useScroll();
   // Scroll in from bottom: y from 100% to 0%
-  const y = useTransform(scrollY, [0, window.innerHeight * 1.5], ["100%", "0%"]);
-  const opacity = useTransform(scrollY, () => 1);
 
   return (
     <motion.div
+      key="resources"
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{ y: "0%", opacity: 1 }}
+      exit={{ y: "-100%", opacity: 0 }}
+      transition={{ duration: 1 }}
       style={{
-        minHeight: "100vh",
+        position: "absolute",
+        height: "100%",
+        width: "100%",
         backgroundColor: "#f7f7f7",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         padding: "4rem 2rem",
-        position: "relative",
-        y,
-        opacity,
-        pointerEvents: "none",
-        zIndex: 1
+        pointerEvents: "auto",
+        zIndex: 2
       }}
     >
       <div style={{ maxWidth: "800px", textAlign: "center", pointerEvents: "auto" }}>
@@ -29,13 +30,13 @@ const ResourcesLinks: React.FC = () => {
         </h2>
         <ul style={{ listStyle: "none", padding: 0, fontSize: "1.4rem", color: "#333" }}>
           <li style={{ marginBottom: "1.5rem" }}>
-            🔗 <a href="https://colab.research.google.com/your-colab-link" target="_blank" rel="noopener noreferrer">Colab Notebook</a>
+            🔗 <a href="https://colab.research.google.com/drive/1kAEmkY9w33tgziS8Ktwqjx2Xm0bLj_2U?usp=sharing" target="_blank" rel="noopener noreferrer">Colab Notebook</a>
           </li>
           <li style={{ marginBottom: "1.5rem" }}>
-            📁 <a href="https://drive.google.com/your-dataset-link" target="_blank" rel="noopener noreferrer">Dataset on Google Drive</a>
+            📁 <a href="https://drive.google.com/drive/folders/1QdLXIxVgI4HRfuI9IzGlD0pr2RGgPe9B?usp=drive_link" target="_blank" rel="noopener noreferrer">Dataset on Google Drive</a>
           </li>
           <li>
-            🧠 <a href="https://drive.google.com/your-best-model-link" target="_blank" rel="noopener noreferrer">Best Performing Model</a>
+            🧠 <a href="https://drive.google.com/file/d/1-mDAT3MEKCAg9Q6ojFFqIpR1KapzSon3/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Best Performing Model</a>
           </li>
         </ul>
       </div>

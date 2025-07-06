@@ -1,23 +1,17 @@
-import './App.css'
+import './App.css';
 import Explanation from './components/Explanation';
 import LandingPage from './components/LandingPage';
 import ResourcesLinks from './components/ResourcesLinks';
 
 function App() {
-
   return (
-    <>
+    <div style={{ width: "100%", overflowX: "hidden" }}>
       <LandingPage />
-      <div style={{ height: "100vh" }} />
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <Explanation />
-      </div>
-      {/* <div style={{ height: "100vh" }} /> */}
-      <div style={{ position: "relative", zIndex: 2 }}>
-        <ResourcesLinks />
-      </div>
-    </>
-  )
+      <div style={{ height: "100dvh" }}></div>
+      <Explanation />
+      <ResourcesLinks />
+    </div>
+  );
 }
 
-export default App
+export default App;
