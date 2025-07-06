@@ -1,8 +1,6 @@
-import React, { useRef } from "react";
-import { motion } from "framer-motion";
+import React from "react";
 
 const LandingPage: React.FC = () => {
-  const ref = useRef(null);
   return (
     <div
       style={{
@@ -91,7 +89,7 @@ const LandingPage: React.FC = () => {
         <div>
           <h1
             style={{
-              fontSize: "4.5rem",
+              fontSize: "3.5rem",
               marginBottom: "1rem",
               fontWeight: "bold",
               color: "#fff",
@@ -101,7 +99,7 @@ const LandingPage: React.FC = () => {
           </h1>
           <p
             style={{
-              fontSize: "1.5rem",
+              fontSize: "1.2rem",
               maxWidth: "1000px",
               margin: "0 auto",
               color: "#fff",

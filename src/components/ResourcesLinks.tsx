@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const ResourcesLinks: React.FC = () => {
   // Scroll in from bottom: y from 100% to 0%
